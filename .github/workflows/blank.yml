@@ -32,6 +32,12 @@ jobs:
       - env:
           UNEX_APIKEY: ${{ secrets.UNEX_APIKEY }}
           UNEX_COOKIES: ${{ secrets.UNEX_COOKIES }}
+          UNEX_GAME: cyberpunk2077
+          UNEX_MODID: 945
+          UNEX_FILENAME: Upload test
+          UNEX_FILEDESCRIPTION: Just testing the file uploading through the nexus uploader
+          UNEX_FILEPATH: ./rq_like_a_boss_6.6.6.zip
+          UNEX_VERSION: v1.2.4
         run: |
           dotnet tool install -g NexusUploader
-          unex check --cookie
+          unex upload $UNEX_MODID $UNEX_FILEPATH -v $UNEX_VERSION
