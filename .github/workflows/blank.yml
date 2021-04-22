@@ -30,5 +30,7 @@ jobs:
           dotnet-version: '3.1.x'
           
       - run: |
+          UNEX_APIKEY=${{ secrets.UNEX_APIKEY }}
+          UNEX_COOKIES=${{ secrets.UNEX_COOKIES }}
           dotnet tool install -g NexusUploader
           unex check --key
